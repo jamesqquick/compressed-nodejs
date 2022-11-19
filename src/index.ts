@@ -25,7 +25,6 @@ app.post(
   async (req: Request, res: Response<MyResponse<any>>) => {
     console.info('Sanity callback');
     const incomingSecret = req.query.secret;
-    console.log(incomingSecret, process.env.SANITY_WEBHOOK_SECRET);
     if (incomingSecret != process.env.SANITY_WEBHOOK_SECRET) {
       console.info('Unathorized');
       return res.status(401);
