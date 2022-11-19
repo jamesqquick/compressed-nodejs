@@ -1,11 +1,12 @@
 {
-    "compilerOptions": {
-      "sourceMap": true,
-      "outDir": "dist",
-      "rootDir": "src/",
-      "strict": true,
-      "target": "ES6",
-        "esModuleInterop": true,
-        "moduleResolution": "node"
-    }
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src/",
+    "strict": true,
+    "target": "ES2018",
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "module": "CommonJS"
   }
+}

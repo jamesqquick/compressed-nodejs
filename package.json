@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start:dev": "nodemon",
+    "dev": "nodemon",
     "build": "npm install && rimraf ./build && tsc",
-    "start": "npm run build && node dist/index.js "
+    "start": "npm run build && node dist/index.js"
   },
   "keywords": [],
   "author": "",
