@@ -16,6 +16,10 @@ const port = process.env.PORT || 3000;
 
 type MyResponse<T> = { err: string } | { data: T };
 
+app.get('/api/health', (req: Request, res: Response) => {
+  return res.status(200).json({ msg: 'Feeling good 🥰' });
+});
+
 app.post(
   '/api/sanityEpisodesCallback',
   async (req: Request, res: Response<MyResponse<any>>) => {
