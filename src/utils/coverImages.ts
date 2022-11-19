@@ -214,7 +214,7 @@ const generateEpisodeCoverURL = async ({
     },
     width: 500,
     color: '#ffffff',
-    y: -1050,
+    y: -1045,
     x: '560',
     crop: 'fit',
   };
