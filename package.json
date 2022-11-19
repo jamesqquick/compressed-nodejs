@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon",
     "build": "npm install && rimraf ./build && tsc",
-    "start": "npm run build && node build/index.js "
+    "start": "npm run build && node dist/index.js "
   },
   "keywords": [],
   "author": "",
