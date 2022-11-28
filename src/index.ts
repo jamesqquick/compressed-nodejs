@@ -40,9 +40,10 @@ app.post(
       hosts,
       socialCover,
       episodeCover,
+      publishedAt,
     } = episode;
 
-    if (!episode || !episodeId || !hosts) {
+    if (!episode || !episodeId || !hosts || !publishedAt) {
       console.warn('Insuffient episode data');
       return res.status(200).json({ data: { msg: 'Nothing to see here.' } });
     }
