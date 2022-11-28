@@ -42,7 +42,7 @@ const getGuestNameTransformations = (firstName: string, lastName: string) => [
   {
     overlay: {
       font_family: 'Montserrat',
-      font_size: 80,
+      font_size: 70,
       text: firstName,
       font_weight: 900,
       text_align: 'center',
@@ -58,7 +58,7 @@ const getGuestNameTransformations = (firstName: string, lastName: string) => [
   {
     overlay: {
       font_family: 'Montserrat',
-      font_size: 80,
+      font_size: 70,
       text: lastName,
       font_weight: 900,
       text_align: 'center',
@@ -84,6 +84,7 @@ const uploadGuestProfilePicIfNotExists = async (
   try {
     await cloudinary.uploader.upload(guestImageURL, {
       public_id: `compressed/${guestImageName}`,
+      overwrite: false,
     });
     return guestImageName;
   } catch (error) {
@@ -119,7 +120,7 @@ const generateEpisodeCoverURL = async ({
   };
 
   const titleWithoutGuestName = title.replace(` with ${guestName}`, '');
-  const baseY = (title.length % 20) * 10 + 300;
+  const baseY = (title.length % 20) * 10 + 100;
   const titleY = baseY.toString();
 
   const xValues = X_VALUES_MAP[totalImages];
@@ -139,8 +140,7 @@ const generateEpisodeCoverURL = async ({
       border: '4px_solid_rgb:ffffff',
     };
     imageTransformations.push(guestImageTransformation);
-
-    const nameY = ((title.length % 20) * 5 + baseY + 400).toString();
+    const nameY = ((title.length % 20) * 20 + baseY).toString();
 
     const guestNameTransformation = {
       overlay: {
@@ -355,8 +355,8 @@ const generateSocialCoverForEpisode = async (episode: Episode) => {
     const { _ref: guestId } = episode.guest[0];
     const { avatar, title: guestName } = await getGuestById(guestId.toString());
     config.guestName = guestName;
-    const guestImageUrl = sanityImageBuilder.image(avatar).url();
-    config.guestImageUrl = guestImageUrl;
+    const guestImageURL = sanityImageBuilder.image(avatar).url();
+    config.guestImageURL = guestImageURL;
   }
 
   const imageUrl = await generateSocialCoverUrl(config);
