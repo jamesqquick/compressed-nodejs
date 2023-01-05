@@ -140,8 +140,7 @@ const generateEpisodeCoverURL = async ({
       border: '4px_solid_rgb:ffffff',
     };
     imageTransformations.push(guestImageTransformation);
-    const nameY = ((title.length % 20) * 20 + baseY).toString();
-
+    const nameY = 740;
     const guestNameTransformation = {
       overlay: {
         font_family: 'Montserrat',
@@ -297,7 +296,6 @@ const generateCoverForEpisode = async (episode: Episode) => {
     hosts,
     guest,
   } = episode;
-  console.log(publishedAt);
   const date = format(new Date(publishedAt), 'MM.dd.yy');
 
   const hostRecords = await Promise.all(
