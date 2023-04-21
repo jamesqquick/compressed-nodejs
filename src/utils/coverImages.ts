@@ -5,7 +5,7 @@ import {
   uploadImage,
 } from './sanity';
 import { cloudinary, uploadAudio } from './cloudinary';
-import { Episode, Guest } from '../types/types';
+import { Episode } from '../types/types';
 import { format } from 'date-fns';
 
 const getGuestTitleTextTransformation = (title: string) => {
